@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:title="Home"
+        android:id="@+id/firstFragment"
+        android:icon="@drawable/ic_home"/>
+
+
+    <item
+        android:title="Carbon Foot Print"
+        android:id="@+id/secondFragment"
+        android:icon="@drawable/ic_flower"/>
+
+
+    <item
+        android:title="Map"
+        android:id="@+id/thirdFragment"
+        android:icon="@drawable/ic_map"/>
+</menu>
