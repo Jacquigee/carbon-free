@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/LAWAL/AndroidStudioProjects/CarbonFree/app/src/main/res/drawable/ic_account_circle.xml" value="0.1595" />
+        <entry key="..\:/Users/LAWAL/AndroidStudioProjects/CarbonFree/app/src/main/res/layout/activity_main.xml" value="0.12552083333333333" />
+        <entry key="..\:/Users/LAWAL/AndroidStudioProjects/CarbonFree/app/src/main/res/layout/activity_splash.xml" value="0.25" />
+        <entry key="..\:/Users/LAWAL/AndroidStudioProjects/CarbonFree/app/src/main/res/layout/carbon_free_layout.xml" value="0.13272543059777103" />
+        <entry key="..\:/Users/LAWAL/AndroidStudioProjects/CarbonFree/app/src/main/res/layout/fragment_fifth_screen.xml" value="0.25" />
+        <entry key="..\:/Users/LAWAL/AndroidStudioProjects/CarbonFree/app/src/main/res/layout/fragment_first.xml" value="0.12552083333333333" />
+        <entry key="..\:/Users/LAWAL/AndroidStudioProjects/CarbonFree/app/src/main/res/layout/fragment_first_screen.xml" value="0.25" />
+        <entry key="..\:/Users/LAWAL/AndroidStudioProjects/CarbonFree/app/src/main/res/layout/fragment_fourth_screen.xml" value="0.25" />
+        <entry key="..\:/Users/LAWAL/AndroidStudioProjects/CarbonFree/app/src/main/res/layout/fragment_home.xml" value="0.12552083333333333" />
+        <entry key="..\:/Users/LAWAL/AndroidStudioProjects/CarbonFree/app/src/main/res/layout/fragment_modal_bottom_sheet.xml" value="0.25" />
+        <entry key="..\:/Users/LAWAL/AndroidStudioProjects/CarbonFree/app/src/main/res/layout/fragment_second.xml" value="0.22" />
+        <entry key="..\:/Users/LAWAL/AndroidStudioProjects/CarbonFree/app/src/main/res/layout/fragment_second_screen.xml" value="0.25" />
+        <entry key="..\:/Users/LAWAL/AndroidStudioProjects/CarbonFree/app/src/main/res/layout/fragment_splash.xml" value="0.13272543059777103" />
+        <entry key="..\:/Users/LAWAL/AndroidStudioProjects/CarbonFree/app/src/main/res/layout/fragment_splash_screen.xml" value="0.5" />
+        <entry key="..\:/Users/LAWAL/AndroidStudioProjects/CarbonFree/app/src/main/res/layout/fragment_third.xml" value="0.12552083333333333" />
+        <entry key="..\:/Users/LAWAL/AndroidStudioProjects/CarbonFree/app/src/main/res/layout/fragment_third_screen.xml" value="0.25" />
+        <entry key="..\:/Users/LAWAL/AndroidStudioProjects/CarbonFree/app/src/main/res/layout/fragment_view_pager.xml" value="0.13272543059777103" />
+        <entry key="..\:/Users/LAWAL/AndroidStudioProjects/CarbonFree/app/src/main/res/menu/bottom_menu.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/LAWAL/AndroidStudioProjects/CarbonFree/app/src/main/res/xml/settings.xml" value="0.25" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

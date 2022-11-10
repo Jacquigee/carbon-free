@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- NOTIFICATIONS STARTS HERE -->
+    <string-array name="notifications_entries">
+        <item>Every 6 hours</item> <!-- index 0 -->
+        <item>Every 12 hours</item> <!-- index 1 -->
+        <item>Every 18 hours</item> <!-- index 2 -->
+
+        <item>Every 24 hours</item> <!-- index 3 -->
+        <item>Every 48 hours</item> <!-- index 4 -->
+
+    </string-array>
+
+    <string-array name="notifications_values">
+        <!--TIME IN MILLISECONDS -->
+        <item>21600000</item> <!-- index 0 -->
+        <item>43200000</item> <!-- index 1 -->
+        <item>64800000</item> <!-- index 2 -->
+
+        <item>86400000</item> <!-- index 3 -->
+        <item>172800000</item> <!-- index 4 -->
+
+    </string-array>
+
+    <!-- NOTIFICATIONS ENDS HERE -->
+
+</resources>
