@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.8.0-Beta">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.8.0-Beta/65878ee92a80c93cd0e5f4079569244d50027b9b/kotlin-stdlib-1.8.0-Beta.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.8.0-Beta/5b8f86fea035328fc9e8c660773037a3401ce25f/kotlin-stdlib-1.8.0-Beta-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.8.0-Beta/2065cebb69d6bbae5e01c3031c5a99d524a2b492/kotlin-stdlib-1.8.0-Beta-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
