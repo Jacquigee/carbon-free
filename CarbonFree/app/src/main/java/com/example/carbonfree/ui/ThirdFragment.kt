@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.carbonfree.databinding.FragmentThirdBinding
+import com.example.carbonfree.databinding.FragmentThirdBindingq
 
 
 class ThirdFragment : Fragment() {
