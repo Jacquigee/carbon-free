@@ -78,6 +78,18 @@ dependencies {
 
     // datastore
     implementation "androidx.datastore:datastore-preferences:1.0.0"
+<<<<<<< HEAD
+
+    // preference library
+    implementation 'androidx.preference:preference-ktx:1.2.0'
+
+    // work manager
+    implementation 'androidx.work:work-runtime:2.7.1'
+    implementation 'androidx.work:work-runtime-ktx:2.7.1'
+
+
+=======
+>>>>>>> d45e9f51a1419791e5357e9761a036d566a67f79
 }
 kapt {
     correctErrorTypes = true

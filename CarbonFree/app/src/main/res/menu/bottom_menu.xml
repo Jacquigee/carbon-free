@@ -8,7 +8,11 @@
 
 
     <item
+<<<<<<< HEAD
+        android:title="Carbon Free"
+=======
         android:title="Get Carbon Free"
+>>>>>>> d45e9f51a1419791e5357e9761a036d566a67f79
         android:id="@+id/secondFragment"
         android:icon="@drawable/ic_flower"/>
 
