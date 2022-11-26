@@ -38,6 +38,8 @@ class FifthScreenFragment : Fragment() {
             myViewModel.saveData()
 
             findNavController().navigate(R.id.action_viewPagerFragment_to_mainActivity)
+            activity?.finish()
+
         }
 
 

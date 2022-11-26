@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -35,6 +36,7 @@ class MainActivity : AppCompatActivity() {
 
         supportActionBar?.hide()
 
+
         appBarConfiguration = AppBarConfiguration(setOf(
             R.id.firstFragment,
             R.id.secondFragment,
@@ -42,6 +44,7 @@ class MainActivity : AppCompatActivity() {
         ))
         setupActionBarWithNavController(navController, appBarConfiguration)
         bottomNavView.setupWithNavController(navController)
+
 
     }
 

@@ -24,6 +24,9 @@ class DetailsFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentDetailsBinding.inflate(inflater, container, false)
 
+        activity?.actionBar?.show()
+
+
         binding.imageView.setImageResource(args.selectedCarbonFree.carbonFreeNotificationLargeIcon)
         binding.textView.text = args.selectedCarbonFree.carbonFreeName.toString()
 

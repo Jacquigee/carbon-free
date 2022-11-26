@@ -42,7 +42,7 @@ class HelpFragment : PreferenceFragmentCompat() {
 
         // step 2 get the value using the 'key'
         val autoNotificationTime = sharedPreferences.getString(getString(R.string.notification_time), "")
-        Toast.makeText(requireContext(), "$autoNotificationTime", Toast.LENGTH_SHORT).show()
+//        Toast.makeText(requireContext(), "$autoNotificationTime", Toast.LENGTH_SHORT).show()
         Log.d("FRAGMENT", "$autoNotificationTime")
 
 

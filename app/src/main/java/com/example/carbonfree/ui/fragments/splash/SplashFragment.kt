@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.carbonfree.databinding.FragmentSplashBinding
 import com.example.carbonfree.datastore.viewmodel.DataStoreViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.delay
 
 @AndroidEntryPoint
 class SplashFragment : Fragment() {
@@ -39,15 +40,20 @@ class SplashFragment : Fragment() {
                 if (myFinished) {
                     val action = SplashFragmentDirections.actionSplashFragmentToMainActivity()
                     findNavController().navigate(action)
+                    activity?.finish()
+
                 }
                 else {
                     val action = SplashFragmentDirections.actionSplashFragmentToViewPagerFragment()
                     findNavController().navigate(action)
 
-
                 }
 
             })
+
+
+
+//            activity?.finish()
 
         }, 3000)
 
