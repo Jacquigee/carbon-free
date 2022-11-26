@@ -1,6 +1,8 @@
 package com.example.carbonfree.ui.fragments.main.getcarbonfree
 
+import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,11 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.preference.PreferenceManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import androidx.work.PeriodicWorkRequestBuilder
-import androidx.work.WorkManager
-import androidx.work.WorkRequest
-import androidx.work.workDataOf
-import android.widget.Toast
+import androidx.work.*
 import com.example.carbonfree.R
 import com.example.carbonfree.databinding.FragmentSecondBinding
 import com.example.carbonfree.ui.fragments.main.getcarbonfree.adapter.CarbonFreeAdapter
@@ -22,9 +20,9 @@ import dagger.hilt.android.AndroidEntryPoint
 import java.util.concurrent.TimeUnit
 
 
-
 @AndroidEntryPoint
-class SecondFragment : Fragment(), CarbonFreeAdapter.ClickListener {
+class SecondFragment : Fragment(), CarbonFreeAdapter.ClickListener,
+    SharedPreferences.OnSharedPreferenceChangeListener {
 
     private lateinit var _binding: FragmentSecondBinding
     private val binding get() = _binding!!
@@ -32,11 +30,6 @@ class SecondFragment : Fragment(), CarbonFreeAdapter.ClickListener {
     private lateinit var carbonFreeList: MutableList<CarbonFree>
 
     private val carbonFreeAdapter: CarbonFreeAdapter by lazy { CarbonFreeAdapter(this) }
-
-    override fun onStart() {
-        createNotification()
-        super.onStart()
-    }
 
 
     override fun onCreateView(
@@ -47,26 +40,70 @@ class SecondFragment : Fragment(), CarbonFreeAdapter.ClickListener {
         _binding = FragmentSecondBinding.inflate(inflater, container, false)
 
         val myList = mutableListOf<CarbonFree>(
-
-            CarbonFree(1, "Recycle", R.raw.recycle_icon_animation, R.drawable.recycle_notif_large_icon),
+            CarbonFree(
+                1,
+                "Recycle",
+                R.raw.recycle_icon_animation,
+                R.drawable.recycle_notif_large_icon
+            ),
             CarbonFree(2, "Save Water", R.raw.water_bottle, R.drawable.save_water_notif_large_icon),
-            CarbonFree(3, "Grow Trees", R.raw.growing_plant, R.drawable.grow_trees_notif_large_icon),
+            CarbonFree(
+                3,
+                "Grow Trees",
+                R.raw.growing_plant,
+                R.drawable.grow_trees_notif_large_icon
+            ),
 
-            CarbonFree(4, "Clean Energy", R.raw.save_energy, R.drawable.clean_energy_notif_large_icon),
-            CarbonFree(5, "Low Carbon Vehicles", R.raw.electric_car, R.drawable.low_carbon_vehicles_notif_large_icon),
+            CarbonFree(
+                4,
+                "Clean Energy",
+                R.raw.save_energy,
+                R.drawable.clean_energy_notif_large_icon
+            ),
+            CarbonFree(
+                5,
+                "Low Carbon Vehicles",
+                R.raw.electric_car,
+                R.drawable.low_carbon_vehicles_notif_large_icon
+            ),
 
-            CarbonFree(6, "Organic Foods", R.raw.gardenernergy, R.drawable.organic_foods_notif_large_icon),
-            CarbonFree(7, "Eco-Friendly Products", R.raw.sustainable_consume, R.drawable.eco_friendly_notif_large_icon),
-            CarbonFree(8, "Minimize Food Waste", R.raw.food_animation, R.drawable.mini_food_waste_notif_large_icon),
-            CarbonFree(9, "Cut Out Plastic", R.raw.vp_greenify_the_earth, R.drawable.cut_out_plastic_notif_large_icon),
-            CarbonFree(10, "Safe Air Travel", R.raw.no_place_like_home_flight, R.drawable.safe_air_travel_notif_large_icon)
+            CarbonFree(
+                6,
+                "Organic Foods",
+                R.raw.gardenernergy,
+                R.drawable.organic_foods_notif_large_icon
+            ),
+            CarbonFree(
+                7,
+                "Eco-Friendly Products",
+                R.raw.sustainable_consume,
+                R.drawable.eco_friendly_notif_large_icon
+            ),
+            CarbonFree(
+                8,
+                "Minimize Food Waste",
+                R.raw.food_animation,
+                R.drawable.mini_food_waste_notif_large_icon
+            ),
+            CarbonFree(
+                9,
+                "Cut Out Plastic",
+                R.raw.vp_greenify_the_earth,
+                R.drawable.cut_out_plastic_notif_large_icon
+            ),
+            CarbonFree(
+                10,
+                "Safe Air Travel",
+                R.raw.no_place_like_home_flight,
+                R.drawable.safe_air_travel_notif_large_icon
+            )
 
         )
         carbonFreeList = myList
 
         setUpRecyclerView()
         carbonFreeAdapter.differ.submitList(carbonFreeList)
-        carbonFreeAdapter.differ.submitList(carbonFreeList)
+
 
         return binding.root
     }
@@ -81,18 +118,25 @@ class SecondFragment : Fragment(), CarbonFreeAdapter.ClickListener {
 
     override fun onMyItemClick(carbonFree: CarbonFree) {
 
+        createNotifTest()
+
         val action = SecondFragmentDirections.actionSecondFragmentToDetailsFragment(carbonFree)
         findNavController().navigate(action)
-        Toast.makeText(
-            requireContext(),
-            "${carbonFree.carbonFreeName} was clicked",
-            Toast.LENGTH_SHORT
-        ).show()
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding.root
+    fun createNotifTest() {
+        val myCarbonFree = carbonFreeList.random()
+        val myRequest: WorkRequest = OneTimeWorkRequestBuilder<MyWorker>()
+            .setInitialDelay(20, TimeUnit.SECONDS)
+            .setInputData(
+                workDataOf(
+                    "contentTitle" to myCarbonFree.carbonFreeName.toString(),
+                    "contentText" to myCarbonFree.carbonFreeLottie.toString(),
+                    "largeIcon" to myCarbonFree.carbonFreeNotificationLargeIcon
+                )
+            ).build()
+
+        WorkManager.getInstance(requireContext()).enqueue(myRequest)
     }
 
     fun createNotification() {
@@ -100,7 +144,8 @@ class SecondFragment : Fragment(), CarbonFreeAdapter.ClickListener {
         val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext())
 
         // step 2 get the value using the 'key'
-        val autoNotificationTime = sharedPreferences.getString(getString(R.string.notification_time), "")
+        val autoNotificationTime =
+            sharedPreferences.getString(getString(R.string.notification_time), "")
 //        Toast.makeText(requireContext(), "$autoNotificationTime", Toast.LENGTH_SHORT).show()
 
         val myCarbonFree = carbonFreeList.random()
@@ -113,7 +158,7 @@ class SecondFragment : Fragment(), CarbonFreeAdapter.ClickListener {
                     workDataOf(
                         "contentTitle" to myCarbonFree.carbonFreeName.toString(),
                         "contentText" to myCarbonFree.carbonFreeLottie.toString(),
-//                    "bitmap" to carbonFree.carbonFreeNotificationLargeIcon
+                        "largeIcon" to myCarbonFree.carbonFreeNotificationLargeIcon
                     )
                 ).build()
 
@@ -127,7 +172,7 @@ class SecondFragment : Fragment(), CarbonFreeAdapter.ClickListener {
                     workDataOf(
                         "contentTitle" to myCarbonFree.carbonFreeName.toString(),
                         "contentText" to myCarbonFree.carbonFreeLottie.toString(),
-//                    "bitmap" to carbonFree.carbonFreeNotificationLargeIcon
+                        "largeIcon" to myCarbonFree.carbonFreeNotificationLargeIcon
                     )
                 ).build()
 
@@ -142,7 +187,7 @@ class SecondFragment : Fragment(), CarbonFreeAdapter.ClickListener {
                     workDataOf(
                         "contentTitle" to myCarbonFree.carbonFreeName.toString(),
                         "contentText" to myCarbonFree.carbonFreeLottie.toString(),
-//                    "bitmap" to carbonFree.carbonFreeNotificationLargeIcon
+                        "largeIcon" to myCarbonFree.carbonFreeNotificationLargeIcon
                     )
                 ).build()
 
@@ -157,7 +202,7 @@ class SecondFragment : Fragment(), CarbonFreeAdapter.ClickListener {
                     workDataOf(
                         "contentTitle" to myCarbonFree.carbonFreeName.toString(),
                         "contentText" to myCarbonFree.carbonFreeLottie.toString(),
-//                    "bitmap" to carbonFree.carbonFreeNotificationLargeIcon
+                        "largeIcon" to myCarbonFree.carbonFreeNotificationLargeIcon
                     )
                 ).build()
 
@@ -172,7 +217,7 @@ class SecondFragment : Fragment(), CarbonFreeAdapter.ClickListener {
                     workDataOf(
                         "contentTitle" to myCarbonFree.carbonFreeName.toString(),
                         "contentText" to myCarbonFree.carbonFreeLottie.toString(),
-//                    "bitmap" to carbonFree.carbonFreeNotificationLargeIcon
+                        "largeIcon" to myCarbonFree.carbonFreeNotificationLargeIcon
                     )
                 ).build()
 
@@ -182,5 +227,17 @@ class SecondFragment : Fragment(), CarbonFreeAdapter.ClickListener {
 
     }
 
-}
+    override fun onSharedPreferenceChanged(p0: SharedPreferences?, p1: String?) {
+//        createNotification()
+        Log.d("secondFragment", "Value changed in settings so i was called")
+        Log.d("secondFragment", "Value changed in settings so i was called $p0")
+        Log.d("secondFragment", "Value changed in settings so i was called $p1")
 
+
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding.root
+    }
+}

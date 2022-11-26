@@ -6,6 +6,7 @@ import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.work.Worker
 import androidx.work.WorkerParameters
+import com.example.carbonfree.R
 import com.example.carbonfree.ui.fragments.main.notifications.MyRequestNotification
 
 class MyWorker (val context: Context, workerParameters: WorkerParameters) : Worker(context, workerParameters) {
@@ -16,7 +17,7 @@ class MyWorker (val context: Context, workerParameters: WorkerParameters) : Work
         MyRequestNotification(context).createNotification(
             inputData.getString("contentTitle").toString(),
             inputData.getString("contentText").toString(),
-//            inputData.getString("bitmap").toString().toInt()
+            inputData.getInt("largeIcon", R.drawable.eco)
 
         )
 

@@ -8,6 +8,7 @@ import android.content.res.Resources
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Build
+import android.util.Log
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.graphics.drawable.toBitmap
@@ -33,7 +34,7 @@ class MyRequestNotification(
 
     fun createNotification(
         title: String, message: String,
-//        bitmap: Int
+        bitmap: Int
     ) {
         createNotificationChannel()
 
@@ -41,7 +42,7 @@ class MyRequestNotification(
 
 //                val bitmap = BitmapFactory.decodeResource(resources, notificationItem.carbonFreeNotificationLargeIcon)
 
-//        val myBitmap = BitmapFactory.decodeResource(context.applicationContext.resources, bitmap)
+        val myBitmap = BitmapFactory.decodeResource(context.applicationContext.resources, bitmap)
 
         val intentPending = NavDeepLinkBuilder(context)
             .setComponentName(MainActivity::class.java)
@@ -50,11 +51,14 @@ class MyRequestNotification(
 
             .createPendingIntent()
 
+        Log.d("myWork", "my work request notif was called: $bitmap")
+
+
         val notification = NotificationCompat.Builder(context, CHANNEL_ID)
             .setContentTitle(title)
             .setContentText(message)
             .setSmallIcon(R.drawable.ic_launcher_foreground)
-//            .setLargeIcon(myBitmap)
+            .setLargeIcon(myBitmap)
 
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
             .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)

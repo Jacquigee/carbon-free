@@ -14,7 +14,6 @@
             android:id="@+id/action_secondFragment_to_detailsFragment"
             app:destination="@id/detailsFragment" />
     </fragment>
-
     <fragment
         android:id="@+id/thirdFragment"
         android:name="com.example.carbonfree.ui.fragments.main.ThirdFragment"

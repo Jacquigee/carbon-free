@@ -10,7 +10,7 @@
     <item
         android:title="Carbon Free"
         android:id="@+id/secondFragment"
-        android:icon="@drawable/ic_flower"/>
+        android:icon="@drawable/ic_baseline_language_24"/>
 
 
     <item
