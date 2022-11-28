@@ -28,6 +28,15 @@
             android:textColor="@color/black"
             android:textSize="20sp"
             android:id="@+id/textView"/>
+        <TextView
+            android:id="@+id/detailsTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Text View"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/crimson_text_semibold"/>
 
     </LinearLayout>
 

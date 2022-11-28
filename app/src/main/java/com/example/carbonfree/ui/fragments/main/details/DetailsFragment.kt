@@ -29,6 +29,7 @@ class DetailsFragment : Fragment() {
 
         binding.imageView.setImageResource(args.selectedCarbonFree.carbonFreeNotificationLargeIcon)
         binding.textView.text = args.selectedCarbonFree.carbonFreeName.toString()
+        binding.detailsTxt.text = args.selectedCarbonFree.carbonFreeText.toString()
 
         return binding.root
     }
