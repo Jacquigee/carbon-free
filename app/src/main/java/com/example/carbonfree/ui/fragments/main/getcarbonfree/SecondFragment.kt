@@ -44,58 +44,68 @@ class SecondFragment : Fragment(), CarbonFreeAdapter.ClickListener,
                 1,
                 "Recycle",
                 R.raw.recycle_icon_animation,
-                R.drawable.recycle_notif_large_icon
+                R.drawable.recycle_notif_large_icon,
+                "The simplest solution to reduce waste is to adapt our production methods to our consumption patterns. The recycling process must also be taken into account in our consumption habits."
             ),
-            CarbonFree(2, "Save Water", R.raw.water_bottle, R.drawable.save_water_notif_large_icon),
+            CarbonFree(2, "Save Water", R.raw.water_bottle, R.drawable.save_water_notif_large_icon,
+            "Turn off the water taps properly after use."),
             CarbonFree(
                 3,
                 "Grow Trees",
                 R.raw.growing_plant,
-                R.drawable.grow_trees_notif_large_icon
+                R.drawable.grow_trees_notif_large_icon,
+                "Grab some seeds or seedlings, and start planting trees like there’s no tomorrow. This will make a big difference. Throughout its life, a tree can absorb and store up to a ton of CO2."
             ),
 
             CarbonFree(
                 4,
                 "Clean Energy",
                 R.raw.save_energy,
-                R.drawable.clean_energy_notif_large_icon
+                R.drawable.clean_energy_notif_large_icon,
+                "Whenever you can, advocate for clean alternatives to fossil fuels, such as wind, solar, geothermal, and appropriately designed hydroelectric and biomass energy projects."
             ),
             CarbonFree(
                 5,
                 "Low Carbon Vehicles",
                 R.raw.electric_car,
-                R.drawable.low_carbon_vehicles_notif_large_icon
+                R.drawable.low_carbon_vehicles_notif_large_icon,
+                "When possible, walk or ride your bike in order to avoid carbon emissions completely. Carpooling and public transportation drastically reduce CO2 emissions by spreading them out over many riders."
             ),
 
             CarbonFree(
                 6,
                 "Organic Foods",
                 R.raw.gardenernergy,
-                R.drawable.organic_foods_notif_large_icon
+                R.drawable.organic_foods_notif_large_icon,
+                "It has been estimated that 13% of U.S. greenhouse gas emissions result from the production and transport of food."
             ),
             CarbonFree(
                 7,
                 "Eco-Friendly Products",
                 R.raw.sustainable_consume,
-                R.drawable.eco_friendly_notif_large_icon
+                R.drawable.eco_friendly_notif_large_icon,
+                "Plastic shopping bags from the grocery store (or any retail store) produce even more waste than single use plastic produce bags."
             ),
             CarbonFree(
                 8,
                 "Minimize Food Waste",
                 R.raw.food_animation,
-                R.drawable.mini_food_waste_notif_large_icon
+                R.drawable.mini_food_waste_notif_large_icon,
+                "Take stock of your pantry, refrigerator and freezer before going to the store to prevent overbuying."
             ),
             CarbonFree(
                 9,
                 "Cut Out Plastic",
                 R.raw.vp_greenify_the_earth,
-                R.drawable.cut_out_plastic_notif_large_icon
+                R.drawable.cut_out_plastic_notif_large_icon,
+                "If you go shopping, remember to take a cloth bag"
             ),
             CarbonFree(
                 10,
                 "Safe Air Travel",
                 R.raw.no_place_like_home_flight,
-                R.drawable.safe_air_travel_notif_large_icon
+                R.drawable.safe_air_travel_notif_large_icon,
+                "Take fewer and longer vacations that are far away, and more frequent and driveable “staycations” closer to home."
             )
 
         )

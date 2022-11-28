@@ -9,5 +9,6 @@ data class CarbonFree(
     val id: Int,
     val carbonFreeName: String,
     val carbonFreeLottie: Int,
-    val carbonFreeNotificationLargeIcon: Int
+    val carbonFreeNotificationLargeIcon: Int,
+    val carbonFreeText: String
 ) : Parcelable
